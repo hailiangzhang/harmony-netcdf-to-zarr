@@ -1,7 +1,6 @@
-# This workflow will install Python dependencies, run tests and lint with a variety of Python versions
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+# This workflow will install python dependencies, run tests, and report code coverage as artifact
 
-name: Python package
+name: Github actions
 
 on:
   push:
@@ -10,7 +9,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build_test2:
+  build_and_test:
 
     runs-on: ubuntu-20.04
     strategy:
