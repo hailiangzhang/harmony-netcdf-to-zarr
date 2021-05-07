@@ -20,7 +20,6 @@ def netcdf_to_zarr(src, dst):
         The output zarr file.  Either a location on disk into which a zarr.DirectoryStore
         will be written or a MutableMapping into which zarr data can be written.
     """
-    o = 1/0
     managed_resources = []
     try:
         # Allow passing in a path to a store or a file
