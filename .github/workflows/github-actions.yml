@@ -38,7 +38,7 @@ jobs:
         coverage report -m > coverage_report.txt
         coverage html
   
-    - name: Archive code coverage results (plain text)htmlcovhtmlcov
+    - name: Archive code coverage results (plain text)
       uses: actions/upload-artifact@v2
       with:
         name: code-coverage-report
@@ -49,5 +49,3 @@ jobs:
       with:
         name: dist-without-markdown
         path: htmlcov/*
-          dist
-          !dist/**/*.md
