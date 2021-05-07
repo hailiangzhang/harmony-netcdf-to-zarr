@@ -34,24 +34,28 @@ jobs:
         bin/test >& test_results-${{ matrix.python-version }}.txt
 
     - name: Generate coverage report
+      if: ${{ always() }}
       run: |
         coverage report -m >& coverage_report-${{ matrix.python-version }}.txt
         coverage html --dir htmlcov-${{ matrix.python-version }}
 
     - name: Archive test results
+      if: ${{ always() }}
       uses: actions/upload-artifact@v2
       with:
         name: test result (for python ${{ matrix.python-version }})
         path: test_results-${{ matrix.python-version }}.txt
         
     - name: Archive code coverage report (plain text)
+      if: ${{ always() }}
       uses: actions/upload-artifact@v2
       with:
         name: code coverage report (plain text) (for python ${{ matrix.python-version }})
         path: coverage_report-${{ matrix.python-version }}.txt
         
     - name: Archive code coverage report (html)
+      if: ${{ always() }}
       uses: actions/upload-artifact@v2
       with:
         name: code coverage report (html) (for python ${{ matrix.python-version }})
-        path: htmlcov-${{ matrix.python-version }}/*.html
+        path: htmlcov-${{ matrix.python-version }}/*
